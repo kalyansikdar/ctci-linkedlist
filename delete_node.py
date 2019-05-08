@@ -9,8 +9,11 @@ def print_node(head):
         head = head.next
   
 def delete_node(head, value):
+  fakeHead = node(None)     # Needs to create a fake head in case the node has to be deleted.
   current = head
-  while current.next != None:
+  fakeHead.next = current
+
+  while current:
     if current.next.data == value:
       current.next=current.next.next
     current=current.next
